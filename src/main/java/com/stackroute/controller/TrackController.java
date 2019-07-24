@@ -71,7 +71,10 @@ public class TrackController {
 
     @GetMapping("track")
     public ResponseEntity<?> getAllTracks() {
+        System.out.println(trackService.getByTrackName("good").toString());
+        System.out.println(trackService.getTrackByNameSortByName("good").toString());
         return new ResponseEntity<>(trackService.getAllTracks(), HttpStatus.OK);
+
     }
 
 }
