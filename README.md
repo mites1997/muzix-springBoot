@@ -1,4 +1,5 @@
 **Muzix Application Case Study**
+(THIS BRANCH CONSISTS OF SPRINGBOOT APPLICATION USING MYSQL DATABASE)
 
 1 Name of Project Muzix Application
 
