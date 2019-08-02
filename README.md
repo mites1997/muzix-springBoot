@@ -1,4 +1,5 @@
 **Muzix Application Case Study**
+(THIS BRANCH CONSISTS OF TESTCASES DONE WITH MYSQL)
 
 1 Name of Project Muzix Application
 
