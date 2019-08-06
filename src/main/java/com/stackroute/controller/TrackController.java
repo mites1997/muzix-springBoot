@@ -66,10 +66,7 @@ public class TrackController {
         return responseEntity;
 
     }
-
-
-
-    @GetMapping("track")
+ @GetMapping("track")
     public ResponseEntity<?> getAllTracks() {
         return new ResponseEntity<>(trackService.getAllTracks(), HttpStatus.OK);
     }
