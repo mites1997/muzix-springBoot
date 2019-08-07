@@ -12,8 +12,9 @@ import java.util.Optional;
 @Service
 public class TrackServiceImpl implements TrackService {
 
-   private TrackRepository trackRepository;
-    Track track;
+    private TrackRepository trackRepository;
+    private Track track;
+    
 
     @Autowired
     public TrackServiceImpl(TrackRepository trackRepository) {
@@ -32,12 +33,20 @@ public class TrackServiceImpl implements TrackService {
     }
 
     @Override
-    public List<Track> getAllTracks() {
+    public List<Track> getAllTracks() throws TrackNotFoundException {
+        if (!trackRepository.existsById(track.getId())) {
+
+            throw new TrackAlreadyExistsException("Track not found" );
+        }
         return trackRepository.findAll();
     }
 
     @Override
-    public Track getTrackById(int id) {
+    public Track getTrackById(int id) throws TrackNotFoundException {
+        if(!trackRepository.existsById(id))
+        {
+            throw new TrackNotFoundException("Track not found");
+        }
 
 
         Track track = trackRepository.findById(id).get();
@@ -57,7 +66,11 @@ public class TrackServiceImpl implements TrackService {
     }
 
     @Override
-    public Track updateTrack(int id,String comment) {
+    public Track updateTrack(int id,String comment) throws TrackNotFoundException {
+       if(!trackRepository.existsById(id))
+        {
+            throw new TrackNotFoundException("Track not found");
+        }
 
         Optional<Track> track = trackRepository.findById(id);
         Track track1 = track.get();
@@ -67,17 +80,8 @@ public class TrackServiceImpl implements TrackService {
 
     }
 
-    @Override
-    public List<Track> getByTrackName(String name) {
-        return trackRepository.findByName(name);
-    }
-
-    @Override
-    public List<Track> getTrackByNameSortByName(String name) {
-        return trackRepository.findByNameSortedById(name);
-    }
 
 
 
 
-}
+
