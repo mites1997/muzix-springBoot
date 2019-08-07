@@ -53,14 +53,20 @@ public class TrackServiceTest {
 
     }
     @Test
-    public void testDeleteTrackSuccess() {
-
-       trackRepository.delet(track);
-      when(trackRepository.findAll()).thenReturn(list);
-      List<Track> trackList = trackService.getAllTracks();
-      assertEquals(list,trackList);
-    }
-
+    public void delete() throws TrackNotFoundException {
+        track3 = new Track();
+        track3.setId(12);
+        track3.setName("Mites");
+        track3.setComment("Good");
+        when(personRepositoryMock.findOne(12)).thenReturn(track3);
+        
+        List<Track> returned = trackservice.delete(12);
+        
+        verify(trackrepository, times(1)).findOne(12);
+        verify(trackrepository, times(1)).delete(track3);
+        verifyNoMoreInteractions(trackrepository);
+        
+        assertEquals(track3, returned);
 
 
 
