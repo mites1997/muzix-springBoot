@@ -11,16 +11,17 @@ import java.util.Optional;
 
 @Service
 public class TrackServiceImpl implements TrackService {
-    @Autowired
+   
    private TrackRepository trackRepository;
-
+     
     public void setTrackRepository(TrackRepository trackRepository) {
         this.trackRepository = trackRepository;
     }
-// Track track;
 
 
+    @Autowired
     public TrackServiceImpl(TrackRepository trackRepository) {
+         
         this.trackRepository = trackRepository;
     }
 
@@ -39,7 +40,7 @@ public class TrackServiceImpl implements TrackService {
     }
 
     @Override
-    public List<Track> getAllTracks() {
+    public List<Track> getAllTracks() throws TrackNotFoundException {
         return trackRepository.findAll();
     }
 
