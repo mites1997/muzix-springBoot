@@ -7,12 +7,11 @@ import com.stackroute.exceptions.TrackNotFoundException;
 import java.util.List;
 
 public interface TrackService {
-
-    public Track saveTrack (Track track) throws TrackAlreadyExistsException;
+ public Track saveTrack (Track track) throws TrackAlreadyExistsException;
 
     public Track getTrackById (int id) throws TrackNotFoundException;
 
-    public List<Track> deleteTrack(int id);
+    public List<Track> deleteTrack(int id) throws TrackNotFoundException;
 
 
     public List<Track> getAllTracks() throws TrackNotFoundException;
