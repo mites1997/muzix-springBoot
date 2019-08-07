@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value="api/v1")
 public class TrackController {
 
-    TrackService trackService;
+  private  TrackService trackService;
 
     public TrackController(TrackService trackService) {
         this.trackService = trackService;
@@ -35,7 +35,7 @@ public class TrackController {
 
     }
 
-    @DeleteMapping(value = "/delete/{id}")
+    @DeleteMapping(value = "/track/{id}")
     public ResponseEntity<?> deleteTrack(@PathVariable Integer id) {
 
         ResponseEntity responseEntity;
@@ -55,7 +55,7 @@ public class TrackController {
 
     }
 
-    @PutMapping(value = "/update/{id}/{comment}")
+    @PutMapping(value = "/track/{id}/{comment}")
     public ResponseEntity<?> updateTrack(@PathVariable int id, @PathVariable String comment) {
 
         ResponseEntity responseEntity;
@@ -71,7 +71,7 @@ public class TrackController {
 
 
 
-    @GetMapping("track")
+    @GetMapping("tracks")
     public ResponseEntity<?> getAllTracks() {
         System.out.println(trackService.getByTrackName("good").toString());
         System.out.println(trackService.getTrackByNameSortByName("good").toString());
