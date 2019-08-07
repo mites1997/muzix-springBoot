@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value="api/v1")
 public class TrackController {
 
-  private  TrackService trackService;
-
+  private TrackService trackService;
+    @Autowired
     public TrackController(TrackService trackService) {
         this.trackService = trackService;
     }
