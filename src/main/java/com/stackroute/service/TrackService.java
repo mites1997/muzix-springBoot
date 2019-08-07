@@ -19,7 +19,4 @@ public interface TrackService{
   public Track updateTrack(Track track) throws TrackNotFoundException;
 
 
-  List<Track> getByTrackName(String name);
-
-    List<Track> getByTrackNameSortByName(String name);
 }
