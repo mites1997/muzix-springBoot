@@ -88,8 +88,8 @@ public class TrackControllerTest {
     @Test
     public void deleteTrack() throws Exception
     {
-      when(trackService.deleteTrack(any())).thenReturn(true);
-      mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/delete/10")
+       when(trackService.deleteTrack(any())).thenReturn(list);
+      mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/track")
         .contentType(MediaType.APPLICATION_JSON).content(asJsonString(track)))
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andDo(MockMvcResultHandlers.print());
