@@ -55,9 +55,10 @@ public class TrackServiceTest {
     @Test
     public void testDeleteTrackSuccess() {
 
-        trackRepository.delete(track);
-        boolean deletedTrack=trackRepository.existsById(12);
-        assertEquals(false,deletedTrack);
+       trackRepository.delet(track);
+      when(trackRepository.findAll()).thenReturn(list);
+      List<Track> trackList = trackService.getAllTracks();
+      assertEquals(list,trackList);
     }
 
 
