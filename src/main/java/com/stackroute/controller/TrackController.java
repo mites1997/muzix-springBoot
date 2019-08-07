@@ -20,8 +20,8 @@ import java.util.List;
 @RequestMapping(value="api/v1")
 public class TrackController {
 
-    TrackService trackService;
-    TrackRepository trackRepository;
+   private TrackService trackService;
+   private TrackRepository trackRepository;
 
     public TrackController(TrackService trackService) {
         this.trackService = trackService;
@@ -58,7 +58,7 @@ public class TrackController {
         return responseEntity;
     }
 
-    @DeleteMapping(value = "/delete/{id}")
+    @DeleteMapping(value = "/track/{id}")
     public ResponseEntity<?> deleteTrack(@PathVariable Integer id) {
 
         ResponseEntity responseEntity;
@@ -78,7 +78,7 @@ public class TrackController {
 
     }
 
-    @PutMapping(value = "/update/{id}/{comment}")
+    @PutMapping(value = "/track/{id}/{comment}")
     public ResponseEntity<?> updateTrack(@PathVariable int id, @PathVariable String comment) {
 
         ResponseEntity responseEntity;
@@ -93,18 +93,7 @@ public class TrackController {
     }
 
 
-    /*public void getBulkData() throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        System.out.println("vishal");
-        URL url = new URL("http://ws.audioscrobbler.com/2.0/?method=track.search&track=Believe&api_key=5a2f391ed9b92b27a6a5b4113743df8c&format=json");
-
-        Track track = objectMapper.readValue(url, Track.class);
-
-        trackRepository.save(track);
-
-        System.out.println(track.toString());
-    }*/
+   
 
     @GetMapping("tracks")
     public ResponseEntity<?> getAllTracks() {
