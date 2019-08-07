@@ -19,9 +19,9 @@ public class Track {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    int id;
-    String name;
-    String comment;
+  private  int id;
+   private String name;
+  private  String comment;
 
 
 
