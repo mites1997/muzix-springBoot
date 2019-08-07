@@ -23,7 +23,7 @@ public class TrackController {
    private TrackService trackService;
    private TrackRepository trackRepository;
    private Track track;
-
+   @Autowired
     public TrackController(TrackService trackService) {
         this.trackService = trackService;
     }
